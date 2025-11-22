@@ -1,21 +1,21 @@
-import React from 'react'
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import Page from './app/dashboard/page.jsx'
+import React from "react";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DashboardPage from "./app/dashboard/page.jsx";
-import PopravkaOne from './Pages/PopravkaOne.jsx'
+import "./index.css";
 
-createRoot(document.getElementById('root')).render(
+import App from "./App.jsx";
+import PopravkaOne from "./Pages/PopravkaOne.jsx";
+import { ThemeProvider } from "./components/theme-provider";
+
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/dashboard" element={<PopravkaOne />} />
-        {/* add more routes here */}
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/dashboard" element={<PopravkaOne />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
-)
+);

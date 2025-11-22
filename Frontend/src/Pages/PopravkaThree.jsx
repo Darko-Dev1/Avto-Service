@@ -24,7 +24,8 @@ const PopravkaThree = () => {
       <SidebarInset>
         <header className="flex h-18 shrink-0 items-center gap-2 z-50 bg-white border-b px-4 sticky top-0">
 
-          <img className="w-[144px] absolute left-[50%] -translate-x-[50%] -translate-y-1.5" src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/3b7b527518607.560acd8ccb0e9.jpg" alt="" />  
+            <img id="imgLogo" className="w-[144px] absolute left-[50%] -translate-x-[50%] -translate-y-1.5" src="../../assets/logo.jpg" alt="" />  
+          <SidebarTrigger className="-ml-1" />
           <SidebarTrigger className="-ml-1" />
           <Separator
             orientation="vertical"
@@ -34,7 +35,7 @@ const PopravkaThree = () => {
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="#">
-                  <a href="">Дома</a>
+                  <a  href="/">Дома</a>
                 </BreadcrumbLink>
               </BreadcrumbItem>
 
