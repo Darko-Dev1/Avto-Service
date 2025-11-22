@@ -124,7 +124,7 @@ export function AppSidebar({ ...props }) {
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <House className="size-4" />
+                  <a href=""><House className="size-4" /></a>
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-medium">Мени</span>

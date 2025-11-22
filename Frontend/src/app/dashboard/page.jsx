@@ -32,7 +32,7 @@ export default function Page() {
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="#">
-                  Дома
+                  <a href="">Дома</a>
                 </BreadcrumbLink>
               </BreadcrumbItem>
 
