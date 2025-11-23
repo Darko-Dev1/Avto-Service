@@ -230,11 +230,12 @@ function SidebarTrigger({
 
   return (
     <Button
+      id="TriggerBtnSidePanel"
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
-      variant="ghost"
       size="icon"
-      className={cn("size-7", className)}
+      variant="outline" 
+      className={cn("size-8", className)}
       onClick={(event) => {
         onClick?.(event)
         toggleSidebar()

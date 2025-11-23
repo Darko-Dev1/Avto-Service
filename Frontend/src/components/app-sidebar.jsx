@@ -26,7 +26,7 @@ import {
 const data = {
   navMain: [
     {
-      title: "Поправка 1",
+      title: "Поправки",
       url: "#",
       items: [
         {
@@ -34,85 +34,47 @@ const data = {
           url: "#",
         },
         {
-          title: "Поправка 1",
+          title: "Поправка 2",
+          url: "#",
+        },
+                {
+          title: "Поправка 3",
+          url: "#",
+        },
+                {
+          title: "Поправка 4",
+          url: "#",
+        },
+                {
+          title: "Поправка 5",
+          url: "#",
+        },
+                {
+          title: "Поправка 6",
           url: "#",
         },
       ],
     },
     {
-      title: "Поправка 2",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Поправка 3",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Поправка 3",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Поправка 4",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
-    },
-  ],
+        title: "За нас",
+        url: "#",
+        items: [
+          {
+            title: "Каде се наоѓаме?",
+            url: "#",
+          },
+          {
+            title: "Кој сме ние?",
+            url: "#",
+          }
+        ],
+      },
+      {
+        title: "Контакт  070 292 293📞",
+        url: "#", 
+      },
+      
+    ]
 }
 
 export function AppSidebar({ ...props }) {
@@ -122,9 +84,9 @@ export function AppSidebar({ ...props }) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className=" text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <a href=""><House className="size-4" /></a>
+              <a  href="#">
+                <div  className=" text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <button id="nice" variant="outline" size="icon" href=""><House  className="size-4"  /></button>
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-medium">Мени</span>

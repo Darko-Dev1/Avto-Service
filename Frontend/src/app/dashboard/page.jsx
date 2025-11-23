@@ -17,6 +17,9 @@ import {
 
 import '../../App.css'
 export default function Page() {
+
+
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -29,7 +32,7 @@ export default function Page() {
             orientation="vertical"
             className="mr-2 data-[orientation=vertical]:h-4"
           />
-            <ModeToggle />
+            <ModeToggle/>
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
@@ -76,7 +79,7 @@ export default function Page() {
                 <h3 className="text-2xl font-semibold text-white mb-2">Поправка на Мотор и Менувач</h3>
                 <p className="text-gray-400">Дијагностика и стручна поправка на сите видови мотори и трансмисии.</p>
                 <img className="w-full p-2 h-[300px]" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjhvyAwQviv56XllWQQRLfwQzhLSVP7_sTWw&s" alt="" />
-            </div>
+            </div>  
         </div>
         
         <div className="p-4 border border-gray-600 rounded-lg hover:border-accent transition duration-300 flex flex-col justify-between bg-gray-900">
