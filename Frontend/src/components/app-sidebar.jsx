@@ -30,27 +30,27 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Поправка 1",
-          url: "#",
+          title: "Комплетна Дијагностика",
+          url: "/popravki/1",
         },
         {
-          title: "Поправка 2",
+          title: "Сервис на Моторно Масло",
           url: "#",
         },
                 {
-          title: "Поправка 3",
+          title: "Ревизија на Кочни Систем",
           url: "#",
         },
                 {
-          title: "Поправка 4",
+          title: "Сервис на Гуми и Баланисирање",
           url: "#",
         },
                 {
-          title: "Поправка 5",
+          title: "Поправка на Клима",
           url: "#",
         },
                 {
-          title: "Поправка 6",
+          title: "Редовно Сервисирање",
           url: "#",
         },
       ],
@@ -78,6 +78,9 @@ const data = {
 }
 
 export function AppSidebar({ ...props }) {
+
+
+
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -86,7 +89,7 @@ export function AppSidebar({ ...props }) {
             <SidebarMenuButton size="lg" asChild>
               <a  href="#">
                 <div  className=" text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <button id="nice" variant="outline" size="icon" href=""><House  className="size-4"  /></button>
+                  <a href=""><House id="nice" className="size-4"  /></a>
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-medium">Мени</span>

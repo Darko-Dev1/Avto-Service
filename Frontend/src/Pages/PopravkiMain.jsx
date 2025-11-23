@@ -1,5 +1,5 @@
-import React from 'react'
-import { AppSidebar } from "../components/app-sidebar.jsx"
+import { AppSidebar } from "../components/app-sidebar"
+import { ModeToggle } from "../components/mode-toggle.jsx"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,33 +8,35 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "../components/ui/breadcrumb.jsx"
-import { Separator } from "../components/ui/separator.jsx"
+import { Separator } from "../components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "../components/ui/sidebar.jsx"
+import CarServiceMain from "../components/CarServiceMain"
 
 import '../App.css'
+export default function PopravkiMain() {
 
-const PopravkaFour = () => {
   return (
-   <SidebarProvider>
+    <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-18 shrink-0 items-center gap-2 z-50 bg-white border-b px-4 sticky top-0">
+        <header className="flex h-18 shrink-0 items-center gap-2 z-50 backdrop-blur-3xl  px-4 sticky top-0">
 
-          <img className="w-[144px] absolute left-[50%] -translate-x-[50%] -translate-y-1.5" src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/3b7b527518607.560acd8ccb0e9.jpg" alt="" />  
+          <img id="imgLogo" onClick={() => {window.location.href="/"}} className="w-[144px] absolute left-[50%] -translate-x-[50%] " src="https://cdn.freebiesupply.com/logos/large/2x/autoservice-logo-png-transparent.png" alt="" />  
           <SidebarTrigger className="-ml-1" />
           <Separator
             orientation="vertical"
             className="mr-2 data-[orientation=vertical]:h-4"
           />
+            <ModeToggle/>
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="#">
-                  <a href="/">Дома</a>
+                  <a href="">Дома</a>
                 </BreadcrumbLink>
               </BreadcrumbItem>
 
@@ -43,7 +45,7 @@ const PopravkaFour = () => {
           </Breadcrumb>
         </header>
 
-    
+    <CarServiceMain></CarServiceMain>
     <footer id="contact" className="bg-accent h-[50vh] text-black p-6 md:p-8 mt-auto flex items-center w-full">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             <div className="text-center md:text-left flex flex-col items-center">
@@ -71,5 +73,3 @@ const PopravkaFour = () => {
     </SidebarProvider>
   )
 }
-
-export default PopravkaFour

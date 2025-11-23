@@ -19,7 +19,7 @@ export function ThemeProvider({
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");
-    document.getElementById("TriggerBtnSidePanel").classList.remove("light", "dark");
+
  
 
     if (theme === "system") {
@@ -33,7 +33,7 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme);
-    document.getElementById("nice").classList.add(theme)
+
   }, [theme]);
 
   const value = {

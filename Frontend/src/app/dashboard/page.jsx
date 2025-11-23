@@ -64,7 +64,7 @@ export default function Page() {
         Услуги што ги нудиме
     </h2>
     
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
         
         <div className="p-4 border border-gray-600 rounded-lg hover:border-accent transition duration-300 flex flex-col justify-between bg-gray-900">
             <div>
@@ -93,7 +93,7 @@ export default function Page() {
     </div>
     
     <div className="text-center mt-12">
-        <button className="bg-accent text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-red-700 transition duration-300 shadow-xl">
+        <button onClick={() => {window.location.href = "/popravki"}} className="bg-accent text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-red-700 transition duration-300 shadow-xl">
             Види ги сите услуги
         </button>
     </div>
