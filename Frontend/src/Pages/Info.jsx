@@ -16,7 +16,7 @@ import {
 } from "../components/ui/sidebar.jsx"
 
 import '../App.css'
-export default function PopravkaThree() {
+export default function Info() {
 
   return (
     <SidebarProvider>
@@ -35,7 +35,7 @@ export default function PopravkaThree() {
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="#">
-                  <a href="">Дома</a>
+                  <a href="/">Дома</a>
                 </BreadcrumbLink>
               </BreadcrumbItem>
 

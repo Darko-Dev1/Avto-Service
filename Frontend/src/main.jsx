@@ -7,6 +7,8 @@ import App from "./App.jsx";
 import PopravkaOne from "./Pages/PopravkaOne.jsx";
 import { ThemeProvider } from "./components/theme-provider";
 import PopravkiMain from "./Pages/PopravkiMain";
+import PopravkaThree from "./Pages/PopravkaThree";
+import Info from "./Pages/Info";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,6 +18,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<App />} />
           <Route path="/popravki" element={<PopravkiMain />} />
           <Route path="/popravki/1" element={<PopravkaOne />} />
+          <Route path="/popravki/2" element={<PopravkaThree />} />
+          <Route path="/info" element={<Info />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

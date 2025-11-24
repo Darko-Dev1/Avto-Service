@@ -27,7 +27,7 @@ const data = {
   navMain: [
     {
       title: "Поправки",
-      url: "#",
+      url: "",
       items: [
         {
           title: "Комплетна Дијагностика",
@@ -35,23 +35,23 @@ const data = {
         },
         {
           title: "Сервис на Моторно Масло",
-          url: "#",
+          url: "/popravki/2",
         },
                 {
           title: "Ревизија на Кочни Систем",
-          url: "#",
+          url: "/popravki/3",
         },
                 {
           title: "Сервис на Гуми и Баланисирање",
-          url: "#",
+          url: "/popravki/4",
         },
                 {
           title: "Поправка на Клима",
-          url: "#",
+          url: "/popravki/5",
         },
                 {
           title: "Редовно Сервисирање",
-          url: "#",
+          url: "/popravki/6",
         },
       ],
     },
@@ -61,11 +61,11 @@ const data = {
         items: [
           {
             title: "Каде се наоѓаме?",
-            url: "#",
+            url: "/info",
           },
           {
             title: "Кој сме ние?",
-            url: "#",
+            url: "/info",
           }
         ],
       },
@@ -89,7 +89,7 @@ export function AppSidebar({ ...props }) {
             <SidebarMenuButton size="lg" asChild>
               <a  href="#">
                 <div  className=" text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <a href=""><House id="nice" className="size-4"  /></a>
+                  <a href="/"><House id="nice" className="size-4"  /></a>
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-medium">Мени</span>

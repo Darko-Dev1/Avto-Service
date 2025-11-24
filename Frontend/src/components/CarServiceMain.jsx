@@ -53,6 +53,20 @@ const CarServiceMain = () => {
   const buttonClasses = 'bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300';
   const cardShadow = 'shadow-xl shadow-black/70'; // Длабока сенка
 
+  const potraga = [
+  { title: 'Поправки', url: '/popravki' },
+  { title: 'Комплетна Дијагностика', url: '/popravki/1' },
+  { title: 'Сервис на Моторно Масло', url: '/popravki/2' },
+  { title: 'Ревизија на Кочни Систем', url: '/popravki/3' },
+  { title: 'Сервис на Гуми и Баланисирање', url: '/popravki/4' },
+  { title: 'Поправка на Клима', url: '/popravki/5' },
+  { title: 'Редовно Сервисирање', url: '/popravki/6' },
+  { title: 'За нас', url: '#' },
+  { title: 'Каде се наоѓаме?', url: '/info' },
+  { title: 'Кој сме ние?', url: '/info' },
+  { title: 'Контакт 070 292 293📞', url: '#' }
+]
+
   return (
     // Главен контејнер
     <main className={`min-h-screen p-8 transition duration-500 ${bgColor} ${textColor}`}>
@@ -69,9 +83,12 @@ const CarServiceMain = () => {
       <section 
         className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
       >
-        {carServices.map((service) => (
+        {carServices.map((service, e) => (
+          
           // Секоја услуга е <article> (картичка)
+
           <article 
+          
             // Комбинација од црна, бела и црвена
             className={`p-6 rounded-xl ${cardBg} ${cardShadow} border-t-4 border-red-600 flex flex-col items-center text-center transition duration-300 hover:scale-[1.02] hover:bg-gray-700/50`} 
             key={service.id}
@@ -89,7 +106,7 @@ const CarServiceMain = () => {
               {service.description}
             </p>
             
-            <button className={buttonClasses}>
+            <button className={buttonClasses} onClick={() => window.location.href = `${potraga[e+1].url}`}>
               Дознај Повеќе
             </button>
           </article>

@@ -3,6 +3,7 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react"
+import { useState } from "react";
 
 import { useIsMobile } from "../../hooks/use-mobile"
 import { cn } from "../../lib/utils"
@@ -292,14 +293,56 @@ function SidebarInset({
 
 function SidebarInput({
   className,
+  potragaOpcii,
   ...props
+
 }) {
+
+  const [InputValue, setInputValue] = useState("");
+  console.log(InputValue)
+  const searchLower = InputValue.toLowerCase();
+  const filteredOpcii = potragaOpcii.filter((itemString) => {
+    return itemString.title.toLowerCase().includes(searchLower);
+  });
+
+  const handleKeyDown = (e) => {
+    // 1. Проверува дали е притиснато копчето Enter
+    if (e.key === 'Enter') {
+      // 2. Проверува дали има точно еден филтриран резултат
+      if (filteredOpcii.length === 1) {
+        // Запирање на стандардното однесување (на пр., поднесување формулар)
+        e.preventDefault(); 
+        
+        const destinationUrl = filteredOpcii[0].url;
+        
+        // 3. Пренасочување на корисникот кон url-от на тој единствен резултат
+        // Се користи window.location.href за навигација
+        if (destinationUrl) {
+          console.log(`Redirecting to: ${destinationUrl}`);
+          window.location.href = destinationUrl;
+        }
+      } else if (filteredOpcii.length === 0) {
+        // Може да додадете логика ако нема совпаѓања
+        console.log("No results found.");
+      } else {
+        // Може да додадете логика ако има повеќе совпаѓања (на пр., отворете паѓачка листа)
+        console.log("Multiple results found, please refine search.");
+      }
+    }
+  };
+
+  console.log("Filtered Options:", filteredOpcii);
+
   return (
     <Input
+      onChange={(e) => setInputValue(e.target.value)}
+      value={InputValue}
+      onKeyDown={handleKeyDown}
       data-slot="sidebar-input"
       data-sidebar="input"
       className={cn("bg-background h-8 w-full shadow-none", className)}
       {...props} />
+      
   );
 }
 
