@@ -5,6 +5,14 @@ import { cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react"
 import { useState } from "react";
 
+
+import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from "lucide-react"
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "./alert"
+
 import { useIsMobile } from "../../hooks/use-mobile"
 import { cn } from "../../lib/utils"
 import { Button } from "./button"
@@ -291,60 +299,96 @@ function SidebarInset({
   );
 }
 
+import { useEffect } from "react";
+
 function SidebarInput({
   className,
   potragaOpcii,
   ...props
-
 }) {
-
+  
   const [InputValue, setInputValue] = useState("");
-  console.log(InputValue)
+  const [showAlert, setShowAlert] = useState(false); 
+  
   const searchLower = InputValue.toLowerCase();
   const filteredOpcii = potragaOpcii.filter((itemString) => {
     return itemString.title.toLowerCase().includes(searchLower);
   });
 
+  // 🔑 NEW LOGIC: Use useEffect to set the timer
+  useEffect(() => {
+    let timer;
+    
+    // Only set the timer if the alert is visible
+    if (showAlert) {
+      // Set a timer for 5000 milliseconds (5 seconds)
+      timer = setTimeout(() => {
+        setShowAlert(false); // Hide the alert after 5 seconds
+      }, 10000);
+    }
+
+    // Cleanup function: This runs when the component unmounts 
+    // or before the effect runs again (if showAlert changes).
+    // It prevents memory leaks and unintended behavior.
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [showAlert]); // Dependency array: Re-run this effect ONLY when showAlert changes
+
   const handleKeyDown = (e) => {
-    // 1. Проверува дали е притиснато копчето Enter
     if (e.key === 'Enter') {
-      // 2. Проверува дали има точно еден филтриран резултат
+      e.preventDefault(); 
+        
       if (filteredOpcii.length === 1) {
-        // Запирање на стандардното однесување (на пр., поднесување формулар)
-        e.preventDefault(); 
-        
-        const destinationUrl = filteredOpcii[0].url;
-        
-        // 3. Пренасочување на корисникот кон url-от на тој единствен резултат
-        // Се користи window.location.href за навигација
-        if (destinationUrl) {
-          console.log(`Redirecting to: ${destinationUrl}`);
-          window.location.href = destinationUrl;
-        }
+          const destinationUrl = filteredOpcii[0].url;
+          if (destinationUrl) {
+              window.location.href = destinationUrl;
+          }
+          setShowAlert(false); 
+          
       } else if (filteredOpcii.length === 0) {
-        // Може да додадете логика ако нема совпаѓања
-        console.log("No results found.");
+          // Set to true to show the alert and start the timer (via useEffect)
+          setShowAlert(true); 
+          
       } else {
-        // Може да додадете логика ако има повеќе совпаѓања (на пр., отворете паѓачка листа)
-        console.log("Multiple results found, please refine search.");
+          // Multiple results found
+          setShowAlert(false); 
       }
     }
   };
 
-  console.log("Filtered Options:", filteredOpcii);
-
   return (
-    <Input
-      onChange={(e) => setInputValue(e.target.value)}
-      value={InputValue}
-      onKeyDown={handleKeyDown}
-      data-slot="sidebar-input"
-      data-sidebar="input"
-      className={cn("bg-background h-8 w-full shadow-none", className)}
-      {...props} />
+    <div className="relative"> 
+      <Input
+        onChange={(e) => {
+          setInputValue(e.target.value);
+          // Hide alert as soon as the user starts typing again
+          setShowAlert(false); 
+        }}
+        value={InputValue}
+        onKeyDown={handleKeyDown} 
+        data-slot="sidebar-input"
+        data-sidebar="input"
+        className={cn("bg-background h-8 w-full shadow-none", className)}
+        {...props}
+      />
       
+      {/* 🔑 Conditional Rendering of the Alert Component */}
+      {showAlert && (
+          <div id="alertDiv" className="grid w-full max-w-xl items-start gap-4 absolute z-50 mt-2" >
+            <Alert variant="destructive">
+              <AlertCircleIcon />
+              <AlertTitle>Неможевме да најдеме резултат</AlertTitle>
+              <AlertDescription>
+                <p>Ве молам пробајте пак користејќи макеонска тастатура</p>
+              </AlertDescription>
+            </Alert>
+          </div>
+      )}
+    </div>
   );
 }
+
 
 function SidebarHeader({
   className,

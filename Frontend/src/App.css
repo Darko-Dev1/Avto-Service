@@ -19,6 +19,21 @@ html.light #nice {
   color: black;
 }
 
+#alertDiv {
+  animation-name: fadeOut;
+  animation-duration: 10000ms;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }50% {
+        opacity: 100%;
+  } 
+  100% {
+    opacity: 0;
+  }
+}
 
 #mainDivContent h1 {
 
