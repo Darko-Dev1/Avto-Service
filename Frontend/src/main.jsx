@@ -11,6 +11,7 @@ import PopravkiMain from "./Pages/PopravkiMain";
 import PopravkaThree from "./Pages/PopravkaThree";
 import Info from "./Pages/Info";
 import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
 
