@@ -35,7 +35,7 @@ export default function PopravkaThree() {
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
                 <BreadcrumbLink href="#">
-                  <a href="">Дома</a>
+                  <a href="/">Дома</a>
                 </BreadcrumbLink>
               </BreadcrumbItem>
 
